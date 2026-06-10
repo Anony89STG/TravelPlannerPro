@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Travel Planner Pro - Planifica tu viaje ideal</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- BARRA DE NAVEGACIÓN (NAVBAR) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>✈️ Travel Planner Pro</h1>
+            </div>
+            <div class="nav-links">
+                <button id="themeToggle" class="theme-btn">🌙 Modo Oscuro</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <main class="container">
+        
+        <!-- SECCIÓN DE BIENVENIDA -->
+        <section id="welcomeSection" class="welcome-card">
+            <div id="userGreeting">
+                <h2>Cargando...</h2>
+            </div>
+        </section>
+
+        <!-- BUSCADOR DE PAÍSES -->
+        <section class="search-section">
+            <h2>🔍 Buscar destino</h2>
+            <div class="search-box">
+                <input type="text" id="countryInput" placeholder="Ejemplo: Colombia, Japón, Francia..." autocomplete="off">
+                <button id="searchBtn" class="btn-primary">Buscar</button>
+            </div>
+            <div id="searchError" class="error-message" style="display: none;"></div>
+        </section>
+
+        <!-- DASHBOARD (Estadísticas rápidas) -->
+        <section class="dashboard">
+            <h2>📊 Tu resumen</h2>
+            <div class="dashboard-cards">
+                <div class="stat-card">
+                    <span class="stat-number" id="totalCountries">0</span>
+                    <span class="stat-label">Países consultados</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="totalFavorites">0</span>
+                    <span class="stat-label">Destinos favoritos</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="totalAttractions">0</span>
+                    <span class="stat-label">Atracciones favoritas</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- INFORMACIÓN DEL PAÍS -->
+        <section id="countryInfo" class="info-section" style="display: none;">
+            <h2>📍 Información del país</h2>
+            <div id="countryDetails" class="country-card"></div>
+        </section>
+
+        <!-- CLIMA -->
+        <section id="weatherInfo" class="info-section" style="display: none;">
+            <h2>🌤️ Clima actual</h2>
+            <div id="weatherDetails" class="weather-card"></div>
+        </section>
+
+        <!-- CONVERSOR DE MONEDA -->
+        <section id="currencyInfo" class="info-section" style="display: none;">
+            <h2>💱 Conversor de moneda</h2>
+            <div class="currency-converter">
+                <input type="number" id="amountInput" placeholder="Cantidad" value="100">
+                <select id="fromCurrency">
+                    <option value="COP">COP (Peso colombiano)</option>
+                    <option value="USD">USD (Dólar)</option>
+                    <option value="EUR">EUR (Euro)</option>
+                    <option value="GBP">GBP (Libra)</option>
+                </select>
+                <span>→</span>
+                <select id="toCurrency"></select>
+                <button id="convertBtn" class="btn-secondary">Convertir</button>
+                <div id="conversionResult" class="conversion-result"></div>
+            </div>
+        </section>
+
+        <!-- ATRACCIONES TURÍSTICAS -->
+        <section id="attractionsInfo" class="info-section" style="display: none;">
+            <h2>🏛️ Atracciones turísticas</h2>
+            <div id="attractionsList" class="attractions-grid"></div>
+        </section>
+
+        <!-- DESTINOS FAVORITOS -->
+        <section class="favorites-section">
+            <h2>⭐ Destinos favoritos</h2>
+            <div id="favoritesList" class="favorites-grid"></div>
+        </section>
+
+        <!-- HISTORIAL DE CONSULTAS -->
+        <section class="history-section">
+            <h2>📜 Historial de consultas</h2>
+            <div id="historyList" class="history-list"></div>
+        </section>
+
+    </main>
+
+    <!-- MODAL PARA REGISTRO DEL USUARIO -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <h2>✈️ Bienvenido a Travel Planner Pro</h2>
+            <p>Por favor, regístrate para comenzar</p>
+            <form id="registerForm">
+                <input type="text" id="userName" placeholder="Nombre completo" required>
+                <input type="email" id="userEmail" placeholder="Correo electrónico" required>
+                <input type="text" id="userCountry" placeholder="País de residencia" required>
+                <button type="submit" class="btn-primary">Registrarme</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- LOADER (indicador de carga) -->
+    <div id="loader" class="loader" style="display: none;">
+        <div class="spinner"></div>
+        <p>Cargando información...</p>
+    </div>
+
+    <!-- ARCHIVOS DE JAVASCRIPT -->
+    <script src="js/storage.js"></script>
+    <script src="js/countries.js"></script>
+    <script src="js/weather.js"></script>
+    <script src="js/currency.js"></script>
+    <script src="js/tourism.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
